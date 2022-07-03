@@ -1,0 +1,9 @@
+module.exports=[
+    require(`./control`),
+    require(`./manager`),
+    require(`./eventer`),   
+    require(`./support`), 
+    require(`./creative`), 
+    require(`./clanstaff`), 
+    require(`./closemod`), 
+]
