@@ -1,7 +1,7 @@
 module.exports= {
     name: `mafia`,
     fullstaffchatid: `993210756894052472`,
-    description: `Организаторы столов по мафии и бункерам.`,
+    description: `Организаторы столов по мафии.`,
     label: `Ведущий мафии`,
     form: [
       {
