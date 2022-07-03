@@ -6,4 +6,6 @@ module.exports=[
     require(`./creative`), 
     require(`./clanstaff`), 
     require(`./closemod`), 
+    require(`./mafia`),
+    require(`./bunker`),
 ]

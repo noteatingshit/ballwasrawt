@@ -7,7 +7,7 @@ module.exports= {
       {
         type: `text`,
         label: `Имя и возраст`,
-        name: `name, age`,
+        name: `name`,
         style: `SHORT`,
         placeholder: `Темыч, 14`,
         required: true,

@@ -35,12 +35,12 @@ const embed={
             customId: `hellokitty_selectembed`,
             maxValues: 1,
             minValues: 1,
-            placeholder: `тут текст селект меню`,
+            placeholder: `Выбери роль на которую хочешь подать заявку`,
             options: embeds.map(e=>({
                 label: e.label,
                 description: e.description,
                 value: e.name,
-                emoji: `<:MP_genshin_13:871148005976334346>`,
+                emoji: `<:hellokittyos:993243920735670342>`,
             }))
 
         }]

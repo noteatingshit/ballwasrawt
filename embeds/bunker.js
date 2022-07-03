@@ -1,13 +1,13 @@
 module.exports= {
     name: `bunker`,
-    fullstaffchatid: `880426725266317372`,
+    fullstaffchatid: `993210756894052472`,
     description: `Организаторы столов по бункеру.`,
     label: `Ведущий бункера`,
     form: [
       {
         type: `text`,
         label: `Имя, возраст`,
-        name: `name, age`,
+        name: `name`,
         style: `SHORT`,
         placeholder: `Саша, 19`,
         required: true,

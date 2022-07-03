@@ -1,8 +1,8 @@
 module.exports= {
     name: `manager`,
     fullstaffchatid: `993197278191951892`,
-    description: `пиар сервера.`,
-    label: `Manager`,
+    description: `Пиар сервера.`,
+    label: `Менеджер`,
     form: [
       {
         type: `text`,
