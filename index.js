@@ -78,7 +78,7 @@ client.on(`interactionCreate`, interaction => {
                             .setPlaceholder(question.placeholder)
                             .setOptions(question.options)
                             .setMinValues(1)
-                            .setMaxValues(1) 
+                            .setMaxValues(1)
                     )
             ))
             const modal = new Modal()
@@ -95,122 +95,28 @@ client.on(`interactionCreate`, interaction => {
 client.on(`modalSubmit`, async modal => {
     if (modal.applicationId !== client.application?.id) return;
     const [prefix, command, value] = modal.customId.split('_');
-        if (prefix !== `hellokitty`) return;
-        if (command === `form`) {
-            const roleObj = embeds.find(e => e.name === value);
-            if (!roleObj) return;
-            const answers=roleObj.form.map(question=>{
-                const label=question.type===`text`?question.label:question.placeholder;
-                const answer=question.type===`text`?modal.getTextInputValue(question.name):modal.getSelectMenuValues(question.name)?.[0];
-                return `**${label}**\n${answer}`;
-            })
-            const content=`**Форма заполнена**\n<@${modal.user.id}> ${modal.user.tag} ${modal.user.id}\n`+answers.join(`\n\n`);
-            const chat=client.channels.cache.get(roleObj.fullstaffchatid)
-            ||client.channels.fetch(roleObj.fullstaffchatid)
-            .catch(()=>console.log(`У роли ${roleObj.name} хуёвый стаф чат`));
-            if(!chat) return;
-            modal.update({content:`Заявка успешно отправлена`,embeds:[],components:[]})
-            chat.send({
-                embeds:[{
-                    title: `Заявка на роль ${roleObj.label}`,
-                    description: content,
-                }]
-            }).catch(()=>console.log(`У роли ${roleObj.name} нету доступа в стафф чат`));;
-        }
+    if (prefix !== `hellokitty`) return;
+    if (command === `form`) {
+        const roleObj = embeds.find(e => e.name === value);
+        if (!roleObj) return;
+        const answers = roleObj.form.map(question => {
+            const label = question.type === `text` ? question.label : question.placeholder;
+            const answer = question.type === `text` ? modal.getTextInputValue(question.name) : modal.getSelectMenuValues(question.name)?.[0];
+            return `**${label}**\n${answer}`;
+        })
+        const content = `**Форма заполнена**\n<@${modal.user.id}> ${modal.user.tag} ${modal.user.id}\n` + answers.join(`\n\n`);
+        const chat = client.channels.cache.get(roleObj.fullstaffchatid)
+            || client.channels.fetch(roleObj.fullstaffchatid)
+                .catch(() => console.log(`У роли ${roleObj.name} хуёвый стаф чат`));
+        if (!chat) return;
+        modal.update({ content: `Заявка успешно отправлена`, embeds: [], components: [] })
+        chat.send({
+            embeds: [{
+                title: `Заявка на роль ${roleObj.label}`,
+                description: content,
+            }]
+        }).catch(() => console.log(`У роли ${roleObj.name} нету доступа в стафф чат`));;
+    }
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Login to Discord with your client's token
-client.login(`OTkwMjkzMDQxNjAyNTAyNzA2.GH4_Mp.wOMVQii49bCg-LjdQSPSxKrSeHh8_OtoUCtRoI`);
+client.login(require(`./config.json`).token);
