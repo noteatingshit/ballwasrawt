@@ -2,6 +2,7 @@ const discordModals = require('discord-modals');
 const { Modal, TextInputComponent, SelectMenuComponent, showModal } = discordModals;
 const { Client, Intents } = require('discord.js');
 const embeds = require(`./embeds`);
+const privetembeds = require(`./embedsprivet`);
 
 const hypecore = '293772563040174082'
 const tfanfy02 = '429519445086568449'
@@ -17,7 +18,9 @@ client.on('messageCreate', message => {
     if (!command.startsWith(`!`)) return;
 
     switch (command.replace(`!`, '')) {
-        case `staffembed`: require(`./commands/staffembed`)(message)
+        case `staffembed`: require(`./commands/staffembed`)(message);break;
+        case `privet`: require(`./commands/embedprivet`)(message);break;
+        case `сказати`: require(`./commands/say`)(message);break;
     }
 
 });
@@ -52,6 +55,17 @@ client.on(`interactionCreate`, interaction => {
                 }]
 
             })
+        }else if (command ===`privet`) {
+            const value = interaction.values[0];
+            const embed = privetembeds.find(e => e.name === value)?.embed;
+            if (!embed) return;
+
+            interaction.reply({
+                ephemeral: true,
+                embeds: [embed],
+
+
+            })     
         }
 
 
