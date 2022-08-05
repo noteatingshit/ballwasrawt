@@ -3,6 +3,7 @@ const { Modal, TextInputComponent, SelectMenuComponent, showModal } = discordMod
 const { Client, Intents } = require('discord.js');
 const embeds = require(`./embeds`);
 const privetembeds = require(`./embedsprivet`);
+const bigboy = require(`./bigboyembeds`);
 
 const hypecore = '293772563040174082'
 const tfanfy02 = '429519445086568449'
@@ -21,6 +22,9 @@ client.on('messageCreate', message => {
         case `staffembed`: require(`./commands/staffembed`)(message);break;
         case `privet`: require(`./commands/embedprivet`)(message);break;
         case `сказати`: require(`./commands/say`)(message);break;
+        case `bigboy` : require(`./commands/bigboy`)(message);break;
+        case `gameroles` : require(`./commands/roli`)(message);break;
+        case `anonsroles` : require(`./commands/anonsi`)(message);break;
     }
 
 });
@@ -66,6 +70,33 @@ client.on(`interactionCreate`, interaction => {
 
 
             })     
+        }else if (command ===`bigboy`) {
+            const value = interaction.values[0];
+            const embed = bigboy.find(e => e.name === value)?.embed;
+            if (!embed) return;
+
+            interaction.reply({
+                ephemeral: true,
+                embeds: [embed],
+
+
+            })      
+        }else if (command ===`gameroles`||command ===`anonsroles`) {
+            const value = interaction.values[0];
+            const role = interaction.guild.roles.cache.get(value);
+            if (!role) return; 
+            const hasRole = interaction.member.roles.cache.has(value)
+            if (!hasRole){
+                interaction.member.roles.add(value)
+            }else{
+                interaction.member.roles.remove(value)  
+            }
+            interaction.reply({
+                ephemeral: true,
+                content: hasRole ? `Вы успешно сняли себе ${role}` : `Вы успешно выдали себе ${role}`
+
+
+            })      
         }
 
 

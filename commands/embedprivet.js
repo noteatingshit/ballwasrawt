@@ -9,10 +9,10 @@ const embed={
     embeds: [
       {
         description: "```Кому писать чтобы пожаловаться на стафф?```",
-        image: {
-        url: "https://media.discordapp.net/attachments/774042908718399509/830486108978544680/1111.png"
-        },
         color: 3092790,
+        image: {
+          url: "https://media.discordapp.net/attachments/774042908718399509/830486108978544680/1111.png"
+        },
       }
     ],
     attachments: [],
