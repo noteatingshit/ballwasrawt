@@ -23,27 +23,27 @@ async function friends(message) {
 
 const servers = [
     { //tenderly
-        image: `https://cdn.discordapp.com/attachments/729777975041720380/1009122369224314941/tenderly.png`,
+        image: `https://cdn.discordapp.com/attachments/793498184990457856/1009140430962708541/tenderly2.png`,
         url: `https://discord.gg/tenderly`,
     },
     { //darkness
-        image: `https://cdn.discordapp.com/attachments/729777975041720380/1009122367634681996/darkness.png`,
+        image: `https://cdn.discordapp.com/attachments/793498184990457856/1009140429624713376/darkness2.png`,
         url: `https://discord.gg/darkness`,
     },
     { //hatory
-        image: `https://cdn.discordapp.com/attachments/729777975041720380/1009122368087654430/hatory.png`,
+        image: `https://cdn.discordapp.com/attachments/793498184990457856/1009140429972836392/hatory2.png`,
         url: `https://discord.gg/hatory`,
     },
     { //solisaid
-        image: `https://cdn.discordapp.com/attachments/729777975041720380/1009122368502894632/solisaid.png`,
+        image: `https://cdn.discordapp.com/attachments/793498184990457856/1009140430287421521/solisaid2.png`,
         url: `https://discord.gg/solisaid`,
     },
     { //sweetness
-        image: `https://cdn.discordapp.com/attachments/729777975041720380/1009122368838443129/sweetness.png`,
+        image: `https://cdn.discordapp.com/attachments/793498184990457856/1009140430631346276/sweetness2.png`,
         url: `https://discord.gg/sweetness`,
     },
     { //twix
-        image: `https://cdn.discordapp.com/attachments/729777975041720380/1009122369610199121/twix.png`,
+        image: `https://cdn.discordapp.com/attachments/793498184990457856/1009140431310831676/twix2.png`,
         url: `https://discord.gg/twix`,
     },
 ]
