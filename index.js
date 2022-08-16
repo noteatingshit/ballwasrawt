@@ -25,7 +25,8 @@ client.on('messageCreate', message => {
         case `bigboy` : require(`./commands/bigboy`)(message);break;
         case `gameroles` : require(`./commands/roli`)(message);break;
         case `anonsroles` : require(`./commands/anonsi`)(message);break;
-    }
+        case `friends` : require(`./commands/friends`)(message);break;
+     }
 
 });
 
