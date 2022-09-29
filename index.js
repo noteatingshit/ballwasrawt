@@ -7,12 +7,13 @@ const bigboy = require(`./bigboyembeds`);
 
 const hypecore = '293772563040174082'
 const tfanfy02 = '429519445086568449'
+const da6ko = `542752250607566868`
 
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 discordModals(client);
 client.on('messageCreate', message => {
-    if (![hypecore, tfanfy02].includes(message.author.id)) return;
+    if (![hypecore, tfanfy02, da6ko].includes(message.author.id)) return;
     const args = message.content.split(/ +/);
     const command = args.shift();
     console.log(command.replace(`!`, ''));
