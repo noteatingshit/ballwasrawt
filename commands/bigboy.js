@@ -1,6 +1,7 @@
 const embeds= require(`../bigboyembeds`);
 
 function bigboy(message){
+    message.delete();  
     console.log(`1`)
 message.channel.send(embed)
 }

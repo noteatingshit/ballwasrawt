@@ -1,6 +1,7 @@
 const embeds= require(`../embedsprivet`);
 
 function staffembed(message){
+    message.delete();  
     console.log(`1`)
 message.channel.send(embed)
 }

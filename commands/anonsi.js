@@ -1,6 +1,7 @@
 const {anons_roles}= require(`../utils/const`);
 
 function bigboy(message){
+    message.delete();  
     console.log(`1`)
 message.channel.send(embed)
 }
