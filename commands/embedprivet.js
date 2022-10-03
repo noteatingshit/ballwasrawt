@@ -1,8 +1,8 @@
 const embeds= require(`../embedsprivet`);
+const {hellokitty}=require (`../devconfig`);
 
 function staffembed(message){
     message.delete();  
-    console.log(`1`)
 message.channel.send(embed)
 }
 const embed={
@@ -21,7 +21,7 @@ const embed={
         type: `ACTION_ROW`,
         components:[{
             type: `SELECT_MENU`,
-            customId: `hellokitty_privet`,
+            customId: `${hellokitty}_privet`,
             maxValues: 1,
             minValues: 1,
             placeholder: `Выбери роль на которую хочешь подать жалобу`,

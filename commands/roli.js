@@ -1,8 +1,8 @@
 const {game_roles}= require(`../utils/const`);
+const {hellokitty}=require (`../devconfig`);
 
 function bigboy(message){
     message.delete();  
-    console.log(`1`)
 message.channel.send(embed)
 }
 const embed={
@@ -33,7 +33,7 @@ const embed={
         type: `ACTION_ROW`,
         components:[{
             type: `SELECT_MENU`,
-            customId: `hellokitty_gameroles`,
+            customId: `${hellokitty}_gameroles`,
             maxValues: 1,
             minValues: 1,
             placeholder: `Выберите нужное`,

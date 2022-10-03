@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "set NODE_ENV=development&& nodemon ."
   },
   "keywords": [
     "похуй",
@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "discord-modals": "^1.3.7",
-    "discord.js": "^13.8.1"
+    "discord.js": "^13.8.1",
+    "nodemon": "^2.0.20"
   }
 }

@@ -4,6 +4,7 @@ const { Client, Intents } = require('discord.js');
 const embeds = require(`./embeds`);
 const privetembeds = require(`./embedsprivet`);
 const bigboy = require(`./bigboyembeds`);
+const {prefix,hellokitty}=require (`./devconfig`);
 
 const hypecore = '293772563040174082'
 const tfanfy02 = '429519445086568449'
@@ -15,11 +16,9 @@ discordModals(client);
 client.on('messageCreate', message => {
     if (![hypecore, tfanfy02, da6ko].includes(message.author.id)) return;
     const args = message.content.split(/ +/);
-    const command = args.shift();
-    console.log(command.replace(`!`, ''));
-    if (!command.startsWith(`!`)) return;
-
-    switch (command.replace(`!`, '')) {
+    const command = args.shift(); 
+    if (!command.startsWith(prefix)) return;
+    switch (command.replace(prefix, '')) {
         case `staffembed`: require(`./commands/staffembed`)(message);break;
         case `privet`: require(`./commands/embedprivet`)(message);break;
         case `сказати`: require(`./commands/say`)(message);break;
@@ -40,7 +39,7 @@ client.on(`interactionCreate`, interaction => {
     if (interaction.applicationId !== client.application?.id) return;
     if (interaction.isSelectMenu()) {
         const [prefix, command] = interaction.customId.split('_');
-        if (prefix !== `hellokitty`) return;
+        if (prefix !== hellokitty) return;
         if (command === `selectembed`) {
             const value = interaction.values[0];
             const embed = embeds.find(e => e.name === value)?.embed;
@@ -53,7 +52,7 @@ client.on(`interactionCreate`, interaction => {
                     type: `ACTION_ROW`,
                     components: [{
                         type: `BUTTON`,
-                        customId: `hellokitty_selectembed_${value}`,
+                        customId: `${hellokitty}_selectembed_${value}`,
                         label: `⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀Подать заявку⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`,
                         style: 'SECONDARY',
 
@@ -106,7 +105,7 @@ client.on(`interactionCreate`, interaction => {
     }
     else if (interaction.isButton()) {
         const [prefix, command, value] = interaction.customId.split('_');
-        if (prefix !== `hellokitty`) return;
+        if (prefix !== hellokitty) return;
         if (command === `selectembed`) {
             const roleObj = embeds.find(e => e.name === value);
             if (!roleObj) return;
@@ -129,7 +128,7 @@ client.on(`interactionCreate`, interaction => {
                     )
             ))
             const modal = new Modal()
-                .setCustomId(`hellokitty_form_${value}`)
+                .setCustomId(`${hellokitty}_form_${value}`)
                 .setTitle(`Заполнить форму ${roleObj.label}`)
                 .addComponents(...components)
             showModal(modal, {
@@ -142,7 +141,7 @@ client.on(`interactionCreate`, interaction => {
 client.on(`modalSubmit`, async modal => {
     if (modal.applicationId !== client.application?.id) return;
     const [prefix, command, value] = modal.customId.split('_');
-    if (prefix !== `hellokitty`) return;
+    if (prefix !== hellokitty) return;
     if (command === `form`) {
         const roleObj = embeds.find(e => e.name === value);
         if (!roleObj) return;
