@@ -5,4 +5,6 @@ module.exports=[
     require(`./kartinki`),
     require(`./duber`),
     require(`./muz`),
+    require(`./hudojka`),
+
 ]

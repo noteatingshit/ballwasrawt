@@ -5,6 +5,8 @@ const embeds = require(`./embeds`);
 const privetembeds = require(`./embedsprivet`);
 const bigboy = require(`./bigboyembeds`);
 const {prefix,hellokitty}=require (`./devconfig`);
+const { components } = require('./bigboyembeds/hudojka');
+const bigboyembeds = require('./bigboyembeds');
 
 const hypecore = '293772563040174082'
 const tfanfy02 = '429519445086568449'
@@ -73,15 +75,29 @@ client.on(`interactionCreate`, interaction => {
             })     
         }else if (command ===`bigboy`) {
             const value = interaction.values[0];
-            const embed = bigboy.find(e => e.name === value)?.embed;
-            if (!embed) return;
+            const result = bigboy.find(e => e.name === value);
+            if (!result) return;
+            const {embed,buttonUrl,form}=result;
+                interaction.reply({
+                    ephemeral: true,
+                    embeds: [embed],
+                    components:(form||buttonUrl)?[{ 
+                        type: `ACTION_ROW`,
+                        components: [{
+                            type: `BUTTON`,
+                            customId: form ? `${hellokitty}_selectembed_${value}` :null,
+                            url:buttonUrl,  
+                            label: `⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀Подать заявку⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`,
+                            style: form ? 'SECONDARY' :'LINK',
+                            
+    
+                            }]
+                    }]:[],
+    
+    
+                })      
+            
 
-            interaction.reply({
-                ephemeral: true,
-                embeds: [embed],
-
-
-            })      
         }else if (command ===`gameroles`||command ===`anonsroles`) {
             const value = interaction.values[0];
             const role = interaction.guild.roles.cache.get(value);
@@ -107,7 +123,7 @@ client.on(`interactionCreate`, interaction => {
         const [prefix, command, value] = interaction.customId.split('_');
         if (prefix !== hellokitty) return;
         if (command === `selectembed`) {
-            const roleObj = embeds.find(e => e.name === value);
+            const roleObj = embeds.find(e => e.name === value)||bigboyembeds.find (e => e.name === value)
             if (!roleObj) return;
             const components = roleObj.form.map(question => (
                 question.type === `text`
@@ -143,7 +159,7 @@ client.on(`modalSubmit`, async modal => {
     const [prefix, command, value] = modal.customId.split('_');
     if (prefix !== hellokitty) return;
     if (command === `form`) {
-        const roleObj = embeds.find(e => e.name === value);
+        const roleObj = embeds.find(e => e.name === value)||bigboyembeds.find (e => e.name === value)
         if (!roleObj) return;
         const answers = roleObj.form.map(question => {
             const label = question.type === `text` ? question.label : question.placeholder;
