@@ -1,7 +1,7 @@
 module.exports= {
 game_roles: [
     {
-        label: `osu`,
+        label: `alias`,
         value: `867477201137434664`,
     }, 
     {
@@ -9,11 +9,11 @@ game_roles: [
         value: `867411578838843433`,
     },
     {
-        label: `among us`,
+        label: `puzzle`,
         value: `899939202182033459`,
     },
     {
-        label: `brawlhalla`,
+        label: `codenames`,
         value: `867411639548772352`,
     },
     {
@@ -33,7 +33,7 @@ game_roles: [
         value: `867411616822591528`,
     },
     {
-        label: `hearthstone`,
+        label: `monopoly `,
         value: `867412430930182174`,
     },
     {
