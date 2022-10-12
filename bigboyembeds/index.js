@@ -6,5 +6,6 @@ module.exports=[
     require(`./duber`),
     require(`./muz`),
     require(`./hudojka`),
-
+    require(`./chtets`),
+    require(`./selfi`),
 ]
