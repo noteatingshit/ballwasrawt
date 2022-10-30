@@ -6,4 +6,5 @@ module.exports=[
     require(`./manager`),
     require(`./creative`),
     require(`./clanstaff`),
+    require(`./kontentes`),
 ]

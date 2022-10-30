@@ -7,6 +7,10 @@ const bigboy = require(`./bigboyembeds`);
 const {prefix,hellokitty}=require (`./devconfig`);
 const { components } = require('./bigboyembeds/hudojka');
 const bigboyembeds = require('./bigboyembeds');
+const eventpravila = require(`./utils/embedeventpravila`);
+const closePravila = require(`./utils/closeplavila`);
+const browserPravila = require(`./utils/browserplavila`);
+const { embed } = require('./embeds/control');
 
 const hypecore = '293772563040174082'
 const tfanfy02 = '429519445086568449'
@@ -15,6 +19,7 @@ const da6ko = `542752250607566868`
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 discordModals(client);
+
 client.on('messageCreate', message => {
     if (![hypecore, tfanfy02, da6ko].includes(message.author.id)) return;
     const args = message.content.split(/ +/);
@@ -28,8 +33,10 @@ client.on('messageCreate', message => {
         case `gameroles` : require(`./commands/roli`)(message);break;
         case `anonsroles` : require(`./commands/anonsi`)(message);break;
         case `friends` : require(`./commands/friends`)(message);break;
+        case `eventpravila` : message.channel.send(require(`./commands/eventpravila`) );break;
+        case `closepravila` : message.channel.send(require(`./commands/closepravila`));break;
+        case `browserpravila` : message.channel.send(require(`./commands/browserpravila`));break;
      }
-
 });
 
 // When the client is ready, run this code (only once)
@@ -41,6 +48,7 @@ client.on(`interactionCreate`, interaction => {
     if (interaction.applicationId !== client.application?.id) return;
     if (interaction.isSelectMenu()) {
         const [prefix, command] = interaction.customId.split('_');
+        console.log(command)
         if (prefix !== hellokitty) return;
         if (command === `selectembed`) {
             const value = interaction.values[0];
@@ -60,8 +68,8 @@ client.on(`interactionCreate`, interaction => {
 
                     }]
                 }]
-
             })
+
         }else if (command ===`privet`) {
             const value = interaction.values[0];
             const embed = privetembeds.find(e => e.name === value)?.embed;
@@ -70,9 +78,8 @@ client.on(`interactionCreate`, interaction => {
             interaction.reply({
                 ephemeral: true,
                 embeds: [embed],
+            })
 
-
-            })     
         }else if (command ===`bigboy`) {
             const value = interaction.values[0];
             const result = bigboy.find(e => e.name === value);
@@ -92,12 +99,8 @@ client.on(`interactionCreate`, interaction => {
                             
     
                             }]
-                    }]:[],
-    
-    
-                })      
+                    }]:[],})      
             
-
         }else if (command ===`gameroles`||command ===`anonsroles`) {
             const value = interaction.values[0];
             const role = interaction.guild.roles.cache.get(value);
@@ -114,9 +117,25 @@ client.on(`interactionCreate`, interaction => {
 
 
             })      
+        }else if(command ===`eventpravila`){
+            const eventEmbed = eventpravila.find(e => e.key===interaction.values[0])
+            interaction.reply({
+                ephemeral: true,
+                embeds: [eventEmbed],
+            })
+        }else if(command ===`closepravila`){
+            const closeEmbed = closePravila.find(e => e.key===interaction.values[0])
+            interaction.reply({
+                ephemeral: true,
+                embeds: [closeEmbed],
+            })
+        }else if(command ===`browserpravila`){
+            const browserEmbed = browserPravila.find(e => e.key===interaction.values[0])
+            interaction.reply({
+                ephemeral: true,
+                embeds: [browserEmbed],
+            })
         }
-
-
 
     }
     else if (interaction.isButton()) {
