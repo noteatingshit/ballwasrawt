@@ -42,9 +42,13 @@ const servers = [
         image: `https://cdn.discordapp.com/attachments/793498184990457856/1009140430631346276/sweetness2.png`,
         url: `https://discord.gg/sweetness`,
     },
+    { //yummy
+        image: `https://cdn.discordapp.com/attachments/805876024243519499/1037077275058917436/yummy.png`,
+        url: `https://discord.gg/yummy`,
+    },
     { //twix
         image: `https://cdn.discordapp.com/attachments/793498184990457856/1009140431310831676/twix2.png`,
-        url: `https://discord.gg/twix`,
+        url: `https://discord.gg/uAsdVkR67A`,
     },
 ]
 module.exports = friends;
