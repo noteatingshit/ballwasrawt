@@ -5,12 +5,12 @@ const embeds = require(`./embeds`);
 const privetembeds = require(`./embedsprivet`);
 const bigboy = require(`./bigboyembeds`);
 const {prefix,hellokitty}=require (`./devconfig`);
-const { components } = require('./bigboyembeds/hudojka');
+// const { components } = require('./bigboyembeds/hudojka');
 const bigboyembeds = require('./bigboyembeds');
 const eventpravila = require(`./utils/embedeventpravila`);
 const closePravila = require(`./utils/closeplavila`);
 const browserPravila = require(`./utils/browserplavila`);
-const { embed } = require('./embeds/control');
+// const { embed } = require('./embeds/control');
 
 const hypecore = '293772563040174082'
 const tfanfy02 = '429519445086568449'
@@ -21,7 +21,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 discordModals(client);
 
 client.on('messageCreate', message => {
-    if (![hypecore, tfanfy02, da6ko].includes(message.author.id)) return;
+    if (![hypecore, tfanfy02, da6ko, '236508653434306560'].includes(message.author.id)) return;
     const args = message.content.split(/ +/);
     const command = args.shift(); 
     if (!command.startsWith(prefix)) return;
@@ -195,7 +195,7 @@ client.on(`modalSubmit`, async modal => {
                 title: `Заявка на роль ${roleObj.label}`,
                 description: content,
             }]
-        }).catch(() => console.log(`У роли ${roleObj.name} нету доступа в стафф чат`));;
+        }).catch(() => console.log(`У роли ${roleObj.name} нету доступа в стафф чат`));
     }
 })
 
