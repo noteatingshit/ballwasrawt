@@ -102,9 +102,8 @@ client.on(`interactionCreate`, interaction => {
                     }]:[],})      
             
         }else if (command ===`gameroles`||command ===`anonsroles`) {
-            const value = interaction.values[0];
-            const role = interaction.guild.roles.cache.get(value);
-            if (!role) return; 
+            const values = interaction.values
+            if (!values.length) return; 
             const hasRole = interaction.member.roles.cache.has(value)
             if (!hasRole){
                 interaction.member.roles.add(value)
