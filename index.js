@@ -107,7 +107,7 @@ client.on(`interactionCreate`, async interaction => {
             if (!values.length) return;
             const roles = values.map(id=>interaction.guild.roles.cache.get(id))
             const hasRoles = roles.filter(role=>interaction.member.roles.cache.has(role.id))
-            const hasNotRoles = roles.filter(role=>!hasRoles.includes(role))
+            const hasNotRoles = roles.filter(role=>!hasRoles.map(r => r.id).includes(role.id))
             hasRoles.length && await interaction.member.roles.remove(hasRoles)
             hasNotRoles.length && await interaction.member.roles.add(hasNotRoles)
             interaction.reply({
