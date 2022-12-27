@@ -34,7 +34,7 @@ const embed={
         components:[{
             type: `SELECT_MENU`,
             customId: `${hellokitty}_gameroles`,
-            maxValues: 1,
+            maxValues: 10,
             minValues: 1,
             placeholder: `Выберите нужное`,
             options: game_roles.map(e=>({

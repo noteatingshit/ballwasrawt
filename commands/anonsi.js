@@ -34,7 +34,7 @@ const embed={
         components:[{
             type: `SELECT_MENU`,
             customId: `${hellokitty}_anonsroles`,
-            maxValues: 1,
+            maxValues: 8,
             minValues: 1,
             placeholder: `Выберите нужное`,
             options: anons_roles.map(e=>({

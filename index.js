@@ -45,7 +45,7 @@ client.once('ready', () => {
     console.log('Ready!');
 });
 
-client.on(`interactionCreate`, interaction => {
+client.on(`interactionCreate`, async interaction => {
     if (interaction.applicationId !== client.application?.id) return;
     if (interaction.isSelectMenu()) {
         const [prefix, command] = interaction.customId.split('_');
@@ -104,16 +104,15 @@ client.on(`interactionCreate`, interaction => {
             
         }else if (command ===`gameroles`||command ===`anonsroles`) {
             const values = interaction.values
-            if (!values.length) return; 
-            const hasRole = interaction.member.roles.cache.has(value)
-            if (!hasRole){
-                interaction.member.roles.add(value)
-            }else{
-                interaction.member.roles.remove(value)  
-            }
+            if (!values.length) return;
+            const roles = values.map(id=>interaction.guild.roles.cache.get(id))
+            const hasRoles = roles.filter(role=>interaction.member.roles.cache.has(role.id))
+            const hasNotRoles = roles.filter(role=>!hasRoles.includes(role))
+            hasRoles.length && await interaction.member.roles.remove(hasRoles)
+            hasNotRoles.length && await interaction.member.roles.add(hasNotRoles)
             interaction.reply({
                 ephemeral: true,
-                content: hasRole ? `Вы успешно сняли себе ${role}` : `Вы успешно выдали себе ${role}`
+                content: `succes`
 
 
             })      
