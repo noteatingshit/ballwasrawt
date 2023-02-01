@@ -3,8 +3,8 @@ module.exports=[
     require(`./eventer`),
     require(`./vedushiy`),
     require(`./closer`),
-    require(`./manager`),
     require(`./creative`),
     require(`./clanstaff`),
     require(`./kontentes`),
+    require(`./helper`),
 ]

@@ -1,6 +1,5 @@
 module.exports=[
     require(`./control`),
-    require(`./manager`),
     require(`./eventer`),   
     require(`./creative`), 
     require(`./clanstaff`), 
