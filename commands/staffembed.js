@@ -1,6 +1,6 @@
 const embeds= require(`../embeds`);
 const {hellokitty}=require (`../devconfig`);
-
+const {ComponentType}=require(`discord.js`)
 function staffembed(message){
 message.channel.send(embed)
 }
@@ -18,9 +18,9 @@ const embed={
     ],
     attachments: [],
     components: [{
-        type: `ACTION_ROW`,
+        type: ComponentType.ActionRow,
         components:[{
-            type: `SELECT_MENU`,
+            type: ComponentType.SelectMenu,
             customId: `${hellokitty}_selectembed`,
             maxValues: 1,
             minValues: 1,

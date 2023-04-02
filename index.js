@@ -1,6 +1,6 @@
 const discordModals = require('discord-modals');
 const { Modal, TextInputComponent, SelectMenuComponent, showModal } = discordModals;
-const { Client, Intents } = require('discord.js');
+const { Client, IntentsBitField } = require('discord.js');
 const embeds = require(`./embeds`);
 const privetembeds = require(`./embedsprivet`);
 const bigboy = require(`./bigboyembeds`);
@@ -10,6 +10,7 @@ const bigboyembeds = require('./bigboyembeds');
 const eventpravila = require(`./utils/embedeventpravila`);
 const closePravila = require(`./utils/closeplavila`);
 const browserPravila = require(`./utils/browserplavila`);
+const allinfo = require('./allinfo').execute;
 // const { embed } = require('./embeds/control');
 
 const hypecore = '293772563040174082'
@@ -18,13 +19,14 @@ const da6ko = `542752250607566868`
 const anata = `812820462027276318`
 const kayanokaede = `1032726813350318100`
 const lmdn = `236508653434306560`
+const hoki = `297372127768870913`
 
 // Create a new client instance
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const client = new Client({ intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.MessageContent, IntentsBitField.Flags.GuildMessages] });
 discordModals(client);
 
 client.on('messageCreate', message => {
-    if (![hypecore, tfanfy02, da6ko, anata, kayanokaede, lmdn].includes(message.author.id)) return;
+    if (![hypecore, tfanfy02, da6ko, anata, kayanokaede, lmdn, hoki].includes(message.author.id)) return;
     const args = message.content.split(/ +/);
     const command = args.shift(); 
     if (!command.startsWith(prefix)) return;
@@ -36,6 +38,7 @@ client.on('messageCreate', message => {
         case `gameroles` : require(`./commands/roli`)(message);break;
         case `anonsroles` : require(`./commands/anonsi`)(message);break;
         case `friends` : require(`./commands/friends`)(message);break;
+        case `allinfo` : require(`./commands/allinfo`)(message);break;
         case `eventpravila` : message.channel.send(require(`./commands/eventpravila`) );break;
         case `closepravila` : message.channel.send(require(`./commands/closepravila`));break;
         case `browserpravila` : message.channel.send(require(`./commands/browserpravila`));break;
@@ -53,6 +56,9 @@ client.on(`interactionCreate`, async interaction => {
         const [prefix, command] = interaction.customId.split('_');
         console.log(command)
         if (prefix !== hellokitty) return;
+        if (command === 'allInfo') {
+            return allinfo(interaction);
+        }
         if (command === `selectembed`) {
             const value = interaction.values[0];
             const embed = embeds.find(e => e.name === value)?.embed;
