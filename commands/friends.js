@@ -1,4 +1,4 @@
-const { ComponentType } = require('discord.js');
+const { ComponentType, ButtonStyle } = require('discord.js');
 
 async function friends(message) {
     for await (const server of servers) {
@@ -13,7 +13,7 @@ async function friends(message) {
                 type: ComponentType.ActionRow,
                 components: [{
                     type: ComponentType.Button,
-                    style: "LINK",
+                    style: ButtonStyle.Link,
                     label: "ᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠПрисоединиться ᅠᅠᅠᅠᅠᅠᅠᅠᅠ",
                     url: server.url
                 }]

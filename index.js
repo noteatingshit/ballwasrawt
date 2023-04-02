@@ -1,6 +1,6 @@
 const discordModals = require('discord-modals');
 const { Modal, TextInputComponent, SelectMenuComponent, showModal } = discordModals;
-const { Client, IntentsBitField, ComponentType } = require('discord.js');
+const { Client, IntentsBitField, ComponentType, ButtonStyle } = require('discord.js');
 const embeds = require(`./embeds`);
 const privetembeds = require(`./embedsprivet`);
 const bigboy = require(`./bigboyembeds`);
@@ -73,7 +73,7 @@ client.on(`interactionCreate`, async interaction => {
                         type: ComponentType.Button,
                         customId: `${hellokitty}_selectembed_${value}`,
                         label: `⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀Подать заявку⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`,
-                        style: 'SECONDARY',
+                        style: ButtonStyle.Secondary,
 
                     }]
                 }]
@@ -104,7 +104,7 @@ client.on(`interactionCreate`, async interaction => {
                             customId: form ? `${hellokitty}_selectembed_${value}` :null,
                             url:buttonUrl,  
                             label: `⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀Подать заявку⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`,
-                            style: form ? 'SECONDARY' :'LINK',
+                            style: form ? ButtonStyle.Secondary : ButtonStyle.Link,
                             
     
                             }]
