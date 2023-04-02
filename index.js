@@ -1,6 +1,6 @@
 const discordModals = require('discord-modals');
 const { Modal, TextInputComponent, SelectMenuComponent, showModal } = discordModals;
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, IntentsBitField, ComponentType } = require('discord.js');
 const embeds = require(`./embeds`);
 const privetembeds = require(`./embedsprivet`);
 const bigboy = require(`./bigboyembeds`);
@@ -68,9 +68,9 @@ client.on(`interactionCreate`, async interaction => {
                 ephemeral: true,
                 embeds: [embed],
                 components: [{
-                    type: `ACTION_ROW`,
+                    type: ComponentType.ActionRow,
                     components: [{
-                        type: `BUTTON`,
+                        type: ComponentType.Button,
                         customId: `${hellokitty}_selectembed_${value}`,
                         label: `⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀Подать заявку⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`,
                         style: 'SECONDARY',
@@ -98,9 +98,9 @@ client.on(`interactionCreate`, async interaction => {
                     ephemeral: true,
                     embeds: [embed],
                     components:(form||buttonUrl)?[{ 
-                        type: `ACTION_ROW`,
+                        type: ComponentType.ActionRow,
                         components: [{
-                            type: `BUTTON`,
+                            type: ComponentType.Button,
                             customId: form ? `${hellokitty}_selectembed_${value}` :null,
                             url:buttonUrl,  
                             label: `⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀Подать заявку⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`,

@@ -1,5 +1,6 @@
 const closepravila= require(`../utils/closeplavila`);
-const {hellokitty}=require (`../devconfig`);
+const { ComponentType } = require('discord.js');
+const { hellokitty } = require (`../devconfig`);
 
 const closeEmbed={
     embeds: [
@@ -13,9 +14,9 @@ const closeEmbed={
     ],
     attachments: [],
     components: [{
-        type: `ACTION_ROW`,
+        type: ComponentType.ActionRow,
         components:[{
-            type: `SELECT_MENU`,
+            type: ComponentType.SelectMenu,
             customId: `${hellokitty}_closepravila`,
             maxValues: 1,
             minValues: 1,

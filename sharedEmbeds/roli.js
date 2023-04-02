@@ -1,5 +1,6 @@
 const {game_roles}= require(`../utils/const`);
 const {hellokitty}=require (`../devconfig`);
+const { ComponentType } = require('discord.js');
 
 module.exports = {
     content: null,
@@ -32,9 +33,9 @@ module.exports = {
     ],
     attachments: [],
     components: [{
-        type: `ACTION_ROW`,
+        type: ComponentType.ActionRow,
         components: [{
-            type: `SELECT_MENU`,
+            type: ComponentType.SelectMenu,
             customId: `${hellokitty}_gameroles`,
             maxValues: 10,
             minValues: 1,

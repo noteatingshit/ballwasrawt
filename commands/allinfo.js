@@ -1,14 +1,15 @@
-const {hellokitty}=require (`../devconfig`);
+const { hellokitty } = require(`../devconfig`);
+const { ComponentType } = require('discord.js');
 const options = require('../allinfo').infoOptions;
 function allinfo(message) {
   message.channel.send({
     embeds: [embed],
     components: [
       {
-        type: "ACTION_ROW",
+        type: ComponentType.ActionRow,
         components: [
           {
-            type: "SELECT_MENU",
+            type: ComponentType.SelectMenu,
             customId: `${hellokitty}_allInfo`,
             maxValues: 1,
             minValues: 1,

@@ -1,6 +1,6 @@
 const embeds= require(`../embeds`);
-const {hellokitty}=require (`../devconfig`);
-const {ComponentType}=require(`discord.js`)
+const { hellokitty } = require (`../devconfig`);
+const { ComponentType } = require(`discord.js`)
 function staffembed(message){
 message.channel.send(embed)
 }

@@ -1,5 +1,6 @@
 const {hellokitty}=require (`../devconfig`);
 const embeds= require(`../bigboyembeds`);
+const { ComponentType } = require('discord.js');
 
 module.exports = {
     content: null,
@@ -33,9 +34,9 @@ module.exports = {
     ],
     attachments: [],
     components: [{
-        type: `ACTION_ROW`,
+        type: ComponentType.ActionRow,
         components: [{
-            type: `SELECT_MENU`,
+            type: ComponentType.SelectMenu,
             customId: `${hellokitty}_bigboy`,
             maxValues: 1,
             minValues: 1,

@@ -1,5 +1,6 @@
 const eventpravila= require(`../utils/embedeventpravila`);
-const {hellokitty}=require (`../devconfig`);
+const { hellokitty } = require (`../devconfig`);
+const { ComponentType } = require('discord.js');
 
 const eventEmbed={
     embeds: [
@@ -13,9 +14,9 @@ const eventEmbed={
     ],
     attachments: [],
     components: [{
-        type: `ACTION_ROW`,
+        type: ComponentType.ActionRow,
         components:[{
-            type: `SELECT_MENU`,
+            type: ComponentType.SelectMenu,
             customId: `${hellokitty}_eventpravila`,
             maxValues: 1,
             minValues: 1,

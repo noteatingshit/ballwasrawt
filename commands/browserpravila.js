@@ -1,5 +1,6 @@
 const browserpravila= require(`../utils/browserplavila`);
-const {hellokitty}=require (`../devconfig`);
+const { ComponentType } = require('discord.js');
+const { hellokitty } = require (`../devconfig`);
 
 const browserEmbed={
     embeds: [
@@ -13,9 +14,9 @@ const browserEmbed={
     ],
     attachments: [],
     components: [{
-        type: `ACTION_ROW`,
+        type: ComponentType.ActionRow,
         components:[{
-            type: `SELECT_MENU`,
+            type: ComponentType.SelectMenu,
             customId: `${hellokitty}_browserpravila`,
             maxValues: 1,
             minValues: 1,

@@ -1,3 +1,5 @@
+const { ComponentType } = require('discord.js');
+
 async function friends(message) {
     for await (const server of servers) {
         await message.channel.send({
@@ -8,9 +10,9 @@ async function friends(message) {
                 color: 3092790,
             }],
             components: [{
-                type: "ACTION_ROW",
+                type: ComponentType.ActionRow,
                 components: [{
-                    type: "BUTTON",
+                    type: ComponentType.Button,
                     style: "LINK",
                     label: "ᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠПрисоединиться ᅠᅠᅠᅠᅠᅠᅠᅠᅠ",
                     url: server.url

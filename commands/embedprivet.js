@@ -1,5 +1,6 @@
 const embeds= require(`../embedsprivet`);
-const {hellokitty}=require (`../devconfig`);
+const { hellokitty } = require (`../devconfig`);
+const { ComponentType } = require('discord.js');
 
 function staffembed(message){
     message.delete();  
@@ -18,9 +19,9 @@ const embed={
     ],
     attachments: [],
     components: [{
-        type: `ACTION_ROW`,
+        type: ComponentType.ActionRow,
         components:[{
-            type: `SELECT_MENU`,
+            type: ComponentType.SelectMenu,
             customId: `${hellokitty}_privet`,
             maxValues: 1,
             minValues: 1,

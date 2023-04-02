@@ -1,5 +1,6 @@
 const {anons_roles}= require(`../utils/const`);
 const {hellokitty}=require (`../devconfig`);
+const { ComponentType } = require('discord.js');
 
 module.exports={
     embeds: [
@@ -31,9 +32,9 @@ module.exports={
     ],
     attachments: [],
     components: [{
-        type: `ACTION_ROW`,
+        type: ComponentType.ActionRow,
         components:[{
-            type: `SELECT_MENU`,
+            type: ComponentType.SelectMenu,
             customId: `${hellokitty}_anonsroles`,
             maxValues: 8,
             minValues: 1,
