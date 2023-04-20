@@ -2,7 +2,7 @@ module.exports= {
     name: `hudojka`,
     fullstaffchatid: `1026594269345091715`,
     label: `Художник сервера`,
-    emoji: `<:loveroom:965495296119410689>`,
+    emoji: `<:artqq:965495296333348865>`,
     fullstaffchatid: `1026594269345091715`,
     hasButton: true,
 
