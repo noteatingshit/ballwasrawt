@@ -5,7 +5,8 @@ const {
     ButtonStyle,
     ModalBuilder,
     TextInputBuilder,
-    StringSelectMenuBuilder
+    StringSelectMenuBuilder,
+    ActionRowBuilder
 } = require('discord.js');
 const embeds = require(`./embeds`);
 const privetembeds = require(`./embedsprivet`);
@@ -177,7 +178,7 @@ client.on(`interactionCreate`, async interaction => {
             const modal = new ModalBuilder()
                 .setCustomId(`${hellokitty}_form_${value}`)
                 .setTitle(`Заполнить форму ${roleObj.label}`)
-                .addComponents(...components)
+                .addComponents(new ActionRowBuilder().addComponents(...components))
             interaction.showModal(modal)
         }
     }
