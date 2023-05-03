@@ -165,6 +165,7 @@ client.on(`interactionCreate`, async interaction => {
                             .setLabel(question.label)
                             .setRequired(question.required)
                             .setStyle(question.style)
+                            .setValue(2)
                     ) : (
                         new StringSelectMenuBuilder()
                             .setCustomId(question.name)
