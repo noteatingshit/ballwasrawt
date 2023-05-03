@@ -10,7 +10,7 @@ module.exports= {
         type: `text`,
         label: `Удобное время проведения прослушивания?`,
         name: `name`,
-        style: `SHORT`,
+        style: 1,
         placeholder: `Время указывайте по мск`,
         required: true,
       }],
