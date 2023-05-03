@@ -29,7 +29,6 @@ const hoki = `297372127768870913`
 
 // Create a new client instance
 const client = new Client({ intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.MessageContent, IntentsBitField.Flags.GuildMessages] });
-discordModals(client);
 
 client.on('messageCreate', message => {
     if (![hypecore, tfanfy02, da6ko, anata, kayanokaede, lmdn, hoki].includes(message.author.id)) return;
