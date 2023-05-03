@@ -178,7 +178,7 @@ client.on(`interactionCreate`, async interaction => {
             const modal = new ModalBuilder()
                 .setCustomId(`${hellokitty}_form_${value}`)
                 .setTitle(`Заполнить форму ${roleObj.label}`)
-                .addComponents(new ActionRowBuilder().addComponents(...components))
+                .addComponents(...components.map(c => new ActionRowBuilder().addComponents(...[c])))
             interaction.showModal(modal)
         }
     }
