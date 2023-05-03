@@ -1,6 +1,6 @@
 const discordModals = require('discord-modals');
 const { Modal, TextInputComponent, SelectMenuComponent, showModal } = discordModals;
-const { Client, IntentsBitField, ComponentType, ButtonStyle } = require('discord.js');
+const { Client, IntentsBitField, ComponentType, ButtonStyle, ModalBuilder } = require('discord.js');
 const embeds = require(`./embeds`);
 const privetembeds = require(`./embedsprivet`);
 const bigboy = require(`./bigboyembeds`);
@@ -169,13 +169,11 @@ client.on(`interactionCreate`, async interaction => {
                             .setMaxValues(1)
                     )
             ))
-            const modal = new Modal()
+            const modal = new ModalBuilder()
                 .setCustomId(`${hellokitty}_form_${value}`)
                 .setTitle(`Заполнить форму ${roleObj.label}`)
                 .addComponents(...components)
-            showModal(modal, {
-                client, interaction
-            })
+            interaction.showModal(modal)
         }
     }
 })
