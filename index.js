@@ -1,6 +1,12 @@
-const discordModals = require('discord-modals');
-const { Modal, TextInputComponent, SelectMenuComponent, showModal } = discordModals;
-const { Client, IntentsBitField, ComponentType, ButtonStyle, ModalBuilder } = require('discord.js');
+const { 
+    Client,
+    IntentsBitField,
+    ComponentType,
+    ButtonStyle,
+    ModalBuilder,
+    TextInputBuilder,
+    StringSelectMenuBuilder
+} = require('discord.js');
 const embeds = require(`./embeds`);
 const privetembeds = require(`./embedsprivet`);
 const bigboy = require(`./bigboyembeds`);
@@ -154,14 +160,14 @@ client.on(`interactionCreate`, async interaction => {
             const components = roleObj.form.map(question => (
                 question.type === `text`
                     ? (
-                        new TextInputComponent()
+                        new TextInputBuilder()
                             .setCustomId(question.name)
                             .setPlaceholder(question.placeholder)
                             .setLabel(question.label)
                             .setRequired(question.required)
                             .setStyle(question.style)
                     ) : (
-                        new SelectMenuComponent()
+                        new StringSelectMenuBuilder()
                             .setCustomId(question.name)
                             .setPlaceholder(question.placeholder)
                             .setOptions(question.options)
